@@ -333,24 +333,22 @@ extern "C" {
 #define MRF_INT_SOURCE INT_SOURCE_EXTERNAL_1
 #define MRF_INT_VECTOR INT_VECTOR_INT1
 
-#define DRV_WIFI_DEFAULT_NETWORK_TYPE       DRV_WIFI_NETWORK_TYPE_SOFT_AP
-#define DRV_WIFI_DEFAULT_SSID               "MCHPSoftAPBWP"
-#define DRV_WIFI_DEFAULT_LIST_RETRY_COUNT   (DRV_WIFI_RETRY_ADHOC) /* Dummy, not used */
-#define DRV_WIFI_DEFAULT_CHANNEL_LIST       {6} /* Set Soft AP network channel */
+#define DRV_WIFI_DEFAULT_NETWORK_TYPE       DRV_WIFI_NETWORK_TYPE_INFRASTRUCTURE
+#define DRV_WIFI_DEFAULT_SSID               "my"
+#define DRV_WIFI_DEFAULT_LIST_RETRY_COUNT   (DRV_WIFI_RETRY_FOREVER) /* Number (1..255) of times to try to connect to the SSID when using Infrastructure network type */
+#define DRV_WIFI_DEFAULT_CHANNEL_LIST       {} /* Channel list for Domain - use default in module */
 
-#define DRV_WIFI_DEFAULT_SECURITY_MODE      DRV_WIFI_SECURITY_OPEN
+#define DRV_WIFI_DEFAULT_SECURITY_MODE      DRV_WIFI_SECURITY_WPA2_WITH_PASS_PHRASE
 #define DRV_WIFI_DEFAULT_WEP_PHRASE         "WEP Phrase" // default WEP passphrase
 #define DRV_WIFI_DEFAULT_WEP_KEY_40         "5AFB6C8E77" // default WEP40 key
 #define DRV_WIFI_DEFAULT_WEP_KEY_104        "90E96780C739409DA50034FCAA" // default WEP104 key
-#define DRV_WIFI_DEFAULT_PSK_PHRASE         "Microchip 802.11 Secret PSK Password" // default WPA passphrase
+#define DRV_WIFI_DEFAULT_PSK_PHRASE         "1234567890" // customized WPA passphrase
 #define DRV_WIFI_DEFAULT_WPS_PIN            "12390212" // default WPS PIN
 
 #define DRV_WIFI_SAVE_WPS_CREDENTIALS       DRV_WIFI_DISABLED
 
 #define DRV_WIFI_CHECK_LINK_STATUS          DRV_WIFI_DISABLED /* Gets the MRF to check the link status relying on Tx failures. */
 #define DRV_WIFI_LINK_LOST_THRESHOLD        40 /* Consecutive Tx transmission failures to be considered the AP is gone away. */
-#define DRV_WIFI_SOFTAP_SEND_KEEP_ALIVE     DRV_WIFI_DISABLED /* Gets Soft AP to send keep alive packets to clients. */
-#define DRV_WIFI_SOFTAP_LINK_LOST_THRESHOLD 40 /* Consecutive null packet transmission failures to be considered the client STA is gone away. */
 
 /* 
  * MRF24W FW has a built-in connection manager, and it is enabled by default.
@@ -363,10 +361,8 @@ extern "C" {
  */
 #define DRV_WIFI_MODULE_CONNECTION_MANAGER  DRV_WIFI_ENABLED
 
-#define DRV_WIFI_DEFAULT_POWER_SAVE         DRV_WIFI_DISABLED /* PS_POLL not supported in Soft AP - must be set to DRV_WIFI_DISABLED */
+#define DRV_WIFI_DEFAULT_POWER_SAVE         DRV_WIFI_DISABLED /* DRV_WIFI_ENABLED or DRV_WIFI_DISABLED */
 #define DRV_WIFI_SOFTWARE_MULTICAST_FILTER  DRV_WIFI_ENABLED
-
-#define DRV_WIFI_ENABLE_STATIC_IP
 
 
 
@@ -382,7 +378,6 @@ extern "C" {
 #define NO_PWDBASED
 #define NO_OLD_TLS
 #define NO_SHA
-#define NO_AES
 #define NO_ASN
 #define NO_RSA
 
@@ -448,33 +443,6 @@ extern "C" {
 #define TCPIP_DHCP_CLIENT_ENABLED             			true
 
 
-/*** DHCP Server Configuration ***/
-#define TCPIP_STACK_USE_DHCP_SERVER
-#define TCPIP_DHCPS_TASK_PROCESS_RATE                               200
-#define TCPIP_DHCPS_LEASE_ENTRIES_DEFAULT                           15
-#define TCPIP_DHCPS_LEASE_SOLVED_ENTRY_TMO                          1200
-#define TCPIP_DHCPS_LEASE_REMOVED_BEFORE_ACK                        5
-#define TCPIP_DHCP_SERVER_DELETE_OLD_ENTRIES                        true
-#define TCPIP_DHCPS_LEASE_DURATION	TCPIP_DHCPS_LEASE_SOLVED_ENTRY_TMO
-
-/*** DHCP Server Instance 0 Configuration ***/
-#define TCPIP_DHCPS_DEFAULT_IP_ADDRESS_RANGE_START_IDX0             "192.168.1.100"
-
-#define TCPIP_DHCPS_DEFAULT_SERVER_IP_ADDRESS_IDX0                  "192.168.1.1"
-
-#define TCPIP_DHCPS_DEFAULT_SERVER_NETMASK_ADDRESS_IDX0             "255.255.255.0"
-
-#define TCPIP_DHCPS_DEFAULT_SERVER_GATEWAY_ADDRESS_IDX0             "192.168.1.1"
-
-#define TCPIP_DHCPS_DEFAULT_SERVER_PRIMARY_DNS_ADDRESS_IDX0         "192.168.1.1"
-
-#define TCPIP_DHCPS_DEFAULT_SERVER_SECONDARY_DNS_ADDRESS_IDX0       "192.168.1.1"
-
-#define TCPIP_DHCP_SERVER_INTERFACE_INDEX_IDX0                      0
-
-#define TCPIP_DHCP_SERVER_POOL_ENABLED_IDX0                         true
-
-
 
 /*** DNS Client Configuration ***/
 #define TCPIP_STACK_USE_DNS
@@ -493,18 +461,6 @@ extern "C" {
 #define TCPIP_DNS_CLIENT_DELETE_OLD_ENTRIES			true
 #define TCPIP_DNS_CLIENT_USER_NOTIFICATION   false
 
-/*** DNS Server Configuration ***/
-#define TCPIP_STACK_USE_DNS_SERVER
-#define TCPIP_DNSS_HOST_NAME_LEN		    		64
-#define TCPIP_DNSS_REPLY_BOARD_ADDR				true
-#define TCPIP_DNSS_CACHE_PER_IPV4_ADDRESS			2
-#define TCPIP_DNSS_CACHE_PER_IPV6_ADDRESS			
-#define TCPIP_DNSS_TTL_TIME							600
-#define TCPIP_DNSS_TASK_PROCESS_RATE			    33
-#define TCPIP_DNSS_DELETE_OLD_LEASE				true
-
-/***Maximum DNS server Cache entries. It is the sum of TCPIP_DNSS_CACHE_PER_IPV4_ADDRESS and TCPIP_DNSS_CACHE_PER_IPV6_ADDRESS.***/
-#define TCPIP_DNSS_CACHE_MAX_SERVER_ENTRIES     (TCPIP_DNSS_CACHE_PER_IPV4_ADDRESS+TCPIP_DNSS_CACHE_PER_IPV6_ADDRESS)
 
 
 
@@ -603,17 +559,15 @@ extern "C" {
 #define TCPIP_IF_MRF24W
 #define TCPIP_NETWORK_DEFAULT_HOST_NAME 			"MCHPBOARD_W"
 #define TCPIP_NETWORK_DEFAULT_MAC_ADDR	 			0
-#define TCPIP_NETWORK_DEFAULT_IP_ADDRESS 			"0.0.0.0"
-#define TCPIP_NETWORK_DEFAULT_IP_MASK 				"255.255.255.0"
-#define TCPIP_NETWORK_DEFAULT_GATEWAY	 			"192.168.1.1"
-#define TCPIP_NETWORK_DEFAULT_DNS 				"192.168.1.1"
+#define TCPIP_NETWORK_DEFAULT_IP_ADDRESS 			"172.19.38.76"
+#define TCPIP_NETWORK_DEFAULT_IP_MASK 				"255.255.252.0"
+#define TCPIP_NETWORK_DEFAULT_GATEWAY	 			"172.19.36.1"
+#define TCPIP_NETWORK_DEFAULT_DNS 				"172.19.26.1"
 #define TCPIP_NETWORK_DEFAULT_SECOND_DNS 			"0.0.0.0"
 #define TCPIP_NETWORK_DEFAULT_POWER_MODE 			"full"
 #define TCPIP_NETWORK_DEFAULT_INTERFACE_FLAGS                       \
                                                     TCPIP_NETWORK_CONFIG_DHCP_CLIENT_ON |\
-                                                    TCPIP_NETWORK_CONFIG_DHCP_SERVER_ON |\
                                                     TCPIP_NETWORK_CONFIG_DNS_CLIENT_ON |\
-                                                    TCPIP_NETWORK_CONFIG_DNS_SERVER_ON |\
                                                     TCPIP_NETWORK_CONFIG_IP_STATIC
 #define TCPIP_NETWORK_DEFAULT_MAC_DRIVER 		    DRV_MRF24W_MACObject
 #define TCPIP_NETWORK_DEFAULT_IPV6_ADDRESS 			0

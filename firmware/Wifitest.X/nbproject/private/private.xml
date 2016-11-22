@@ -5,16 +5,21 @@
             <url>file:/C:/microchip/harmony/v2_00b/apps/Wifitest/firmware/src/app.c</url>
             <bookmark id="1">
                 <name/>
-                <line>464</line>
+                <line>576</line>
                 <key/>
             </bookmark>
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/microchip/harmony/v2_00b/framework/tcpip/src/tcpip_manager.c</file>
+            <file>file:/C:/microchip/harmony/v2_00b/framework/driver/wifi/mrf24w/src/drv_wifi_config_data.c</file>
+            <file>file:/C:/microchip/harmony/v2_00b/framework/driver/wifi/mrf24w/src/drv_wifi_iwpriv.c</file>
+            <file>file:/C:/microchip/harmony/v2_00b/apps/Wifitest/firmware/src/system_config/wifitest/system_config.h</file>
+            <file>file:/C:/microchip/harmony/v2_00b/framework/driver/wifi/mrf24w/src/drv_wifi_config_data.h</file>
             <file>file:/C:/microchip/harmony/v2_00b/apps/Wifitest/firmware/src/app.h</file>
             <file>file:/C:/microchip/harmony/v2_00b/apps/Wifitest/firmware/src/app.c</file>
-            <file>file:/C:/microchip/harmony/v2_00b/framework/system/console/src/sys_console.c</file>
+            <file>file:/C:/microchip/harmony/v2_00b/framework/driver/wifi/mrf24w/drv_wifi.h</file>
         </group>
     </open-files>
 </project-private>

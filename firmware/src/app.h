@@ -70,6 +70,18 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #endif /* Wi-Fi Interface */
 
 
+#define TCP_TEST_STR    ".................................This is TCP client test program.................................\r\n"
+//#define SERVER_NAME     "Aessense" //"dlink"
+//#define SERVER_PWD      "Sh888888" //"linkserver"
+#define SERVER_NAME     "my" //"dlink"
+#define SERVER_PWD      "1234567890" //"linkserver"
+#define SERVER_PORT     9760
+#define SERVER_V0       172//172
+#define SERVER_V1       19//19
+#define SERVER_V2       38//12
+#define SERVER_V3       75//57
+
+
 #if defined(TCPIP_IF_MRF24W) /* Wi-Fi Interface */
 
 #define WF_DISABLED DRV_WIFI_DISABLED
@@ -184,6 +196,8 @@ typedef enum
 
     /* The application configures the Wi-Fi settings. */
     APP_WIFI_CONFIG,
+            
+    APP_WIFI_GETINFO,
 
     /* In this state, the application runs the Wi-Fi prescan. */
     APP_WIFI_PRESCAN,
@@ -284,7 +298,7 @@ typedef struct
     
     APP_WIFI_PRESCAN_STATE scanState;
     /* TODO: Define any additional data used by the application. */
-    UDP_SOCKET              socket;
+    TCP_SOCKET              socket;
     
 //    APP_WIFI_UDP_SEVER_STATE serverState;
 

@@ -262,10 +262,6 @@
         <Path>Source Files/framework/crypto/src</Path>
       </File>
       <File>
-        <Name>dhcps.c</Name>
-        <Path>Source Files/framework/tcpip/src</Path>
-      </File>
-      <File>
         <Name>hash.c</Name>
         <Path>Source Files/framework/crypto/src</Path>
       </File>
@@ -1354,10 +1350,6 @@
         <Path>Source Files/framework/driver/usart/src/dynamic</Path>
       </File>
       <File>
-        <Name>dnss.c</Name>
-        <Path>Source Files/framework/tcpip/src</Path>
-      </File>
-      <File>
         <Name>tcpip_reboot_manager.h</Name>
         <Path>Header Files/framework/tcpip/src</Path>
       </File>
@@ -1459,7 +1451,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/wifitest</Path>
-        <Checksum>06E47216EB4F139A92B691C3BBA14B99</Checksum>
+        <Checksum>D579F2724344BF3986B940188CB6FD03</Checksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -1483,7 +1475,7 @@
       <Template>
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/wifitest</Path>
-        <Checksum>3C3FC4D239DDD270775A18782CBD15C1</Checksum>
+        <Checksum>E56A1F3B59C98DE2AC6DFCC7DB5E2A2B</Checksum>
       </Template>
       <Template>
         <Name>drv_spi_tasks.c</Name>
@@ -1531,10 +1523,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:/microchip/harmony/v2_00b/apps/Wifitest/firmware/src"/>
-        <Include value="C:/microchip/harmony/v2_00b/apps/Wifitest/firmware/src/system_config/wifitest"/>
-        <Include value="C:/microchip/harmony/v2_00b/framework"/>
-        <Include value="C:/microchip/harmony/v2_00b/apps/Wifitest/firmware/src/system_config/wifitest/framework"/>
+        <Include value="C:\microchip\harmony\v2_00b\apps\Wifitest\firmware\src"/>
+        <Include value="C:\microchip\harmony\v2_00b\apps\Wifitest\firmware\src\system_config\wifitest"/>
+        <Include value="C:\microchip\harmony\v2_00b\framework"/>
+        <Include value="C:\microchip\harmony\v2_00b\apps\Wifitest\firmware\src\system_config\wifitest\framework"/>
       </C32>
     </CompilerItems>
     <Libraries>

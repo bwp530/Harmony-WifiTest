@@ -611,9 +611,7 @@
             <itemPath>../../../../framework/tcpip/src/tcpip_heap_internal.c</itemPath>
             <itemPath>../../../../framework/tcpip/src/arp.c</itemPath>
             <itemPath>../../../../framework/tcpip/src/dhcp.c</itemPath>
-            <itemPath>../../../../framework/tcpip/src/dhcps.c</itemPath>
             <itemPath>../../../../framework/tcpip/src/dns.c</itemPath>
-            <itemPath>../../../../framework/tcpip/src/dnss.c</itemPath>
             <itemPath>../../../../framework/tcpip/src/icmp.c</itemPath>
             <itemPath>../../../../framework/tcpip/src/nbns.c</itemPath>
             <itemPath>../../../../framework/tcpip/src/zero_conf_helper.c</itemPath>
