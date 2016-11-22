@@ -239,30 +239,7 @@ void APP_Tasks ( void )
             }       
 
             break;
-        }
-//         case APP_WIFI_CONFIG:{
-//             
-//            // Copy Wi-Fi cfg data to be committed to NVM. 
-//            s_app_get_param.config.data = &g_wifi_cfg;
-//            iwpriv_get(CONFIG_GET, &s_app_get_param);
-//            strcpy((char *)g_wifi_cfg.ssid, (char *)SERVER_NAME);
-//            g_wifi_cfg.ssidLen = strlen(SERVER_NAME);
-//            // Going to set security type. 
-//            g_wifi_cfg.securityMode = DRV_WIFI_SECURITY_WPA2_WITH_PASS_PHRASE;
-//            // Going to save the key, if required. 
-//            if (g_wifi_cfg.securityMode != WF_SECURITY_OPEN) {
-//                memcpy(g_wifi_cfg.securityKey, SERVER_PWD, sizeof(SERVER_PWD));
-//                g_wifi_cfg.securityKey[strlen((const char *)SERVER_PWD)] = 0;
-//                g_wifi_cfg.securityKeyLen = sizeof(SERVER_PWD);
-//            }
-//            // Going to save the network type. 
-//            g_wifi_cfg.networkType = WF_NETWORK_TYPE_INFRASTRUCTURE;
-//            s_app_set_param.config.data = &g_wifi_cfg;
-//            iwpriv_set(CONFIG_SET, &s_app_set_param);              
-////            tcpState = NETWORK_WIFI_CONFIG;
-//             appData.state = APP_WIFI_GETINFO;
-//             break;
-//         }             
+        }         
              
     case APP_WIFI_GETINFO:{         
             /*
@@ -317,7 +294,7 @@ void APP_Tasks ( void )
         
         case APP_TCPIP_MODULES_ENABLE:
             // check the available interfaces
-            //DRV_WIFI_Connect();
+            DRV_WIFI_Connect();
             SYS_CONSOLE_MESSAGE(" ---------APP_TCPIP_MODULES_ENABLE------------\r\n");
             nNets = TCPIP_STACK_NumberOfNetworksGet();
             SYS_PRINT("  Interfaces number:%d\r\n", nNets);
@@ -331,7 +308,7 @@ void APP_Tasks ( void )
             // if the IP address of an interface has changed
             // display the new value on the system console
          //   SYS_CONSOLE_MESSAGE(" ---------APP_TCPIP_WAIT_FOR_IP------------\r\n");
-            TCPIP_DHCP_Renew(netH);
+           // TCPIP_DHCP_Renew(netH);
             nNets = TCPIP_STACK_NumberOfNetworksGet();
 
             for (i = 0; i < nNets; i++)
@@ -383,7 +360,6 @@ void APP_Tasks ( void )
 
         case APP_TCPIP_WAIT_FOR_CONNECTION:
         {
-            SYS_CONSOLE_MESSAGE(" ---------APP_TCPIP_WAIT_FOR_CONNECTION------------\r\n");
             if (!TCPIP_TCP_IsConnected(appData.socket))
             {
                 return;

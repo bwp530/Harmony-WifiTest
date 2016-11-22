@@ -76,10 +76,10 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #define SERVER_NAME     "my" //"dlink"
 #define SERVER_PWD      "1234567890" //"linkserver"
 #define SERVER_PORT     9760
-#define SERVER_V0       172//172
-#define SERVER_V1       19//19
-#define SERVER_V2       38//12
-#define SERVER_V3       75//57
+#define SERVER_V0       192//172
+#define SERVER_V1       168//19
+#define SERVER_V2       43//12
+#define SERVER_V3       227//57
 
 
 #if defined(TCPIP_IF_MRF24W) /* Wi-Fi Interface */
